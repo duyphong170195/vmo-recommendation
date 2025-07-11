@@ -1,0 +1,15 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /recommendation
+  shutdown: graceful
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DATASOURCE_URL:localhost:3306}/recommendation?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: ${DATASOURCE_USERNAME:root}
+    password: ${DATASOURCE_PASSWORD:root}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    generate-ddl: false
