@@ -19,15 +19,15 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        tripRepository.deleteAll();
-//        Set<Trip> trips = new HashSet<>();
-//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-//                getClass().getResourceAsStream("/trip-tracking.csv")))) {
-//            reader.lines().skip(1).forEach(line -> {
-//                String[] parts = line.split(",");
-//                trips.add(new Trip(null, parts[0], parts[1]));
-//            });
-//        }
-//        tripRepository.saveAll(trips);
+        tripRepository.deleteAll();
+        Set<Trip> trips = new HashSet<>();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+                getClass().getResourceAsStream("/trip-tracking.csv")))) {
+            reader.lines().skip(1).forEach(line -> {
+                String[] parts = line.split(",");
+                trips.add(new Trip(null, parts[0], parts[1]));
+            });
+        }
+        tripRepository.saveAll(trips);
     }
 }
